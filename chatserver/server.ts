@@ -1,5 +1,6 @@
 import { createServer } from "http";
 import { Server, Socket } from "socket.io";
+var p2p = require('socket.io-p2p-server').Server;
 const httpServer = createServer();
 const io = new Server(httpServer, {
   cors: {
@@ -7,6 +8,8 @@ const io = new Server(httpServer, {
     methods: ["GET", "POST"]
   }
 });
+
+io.use(p2p);
 
 io.on("connection", (socket: Socket) => {
   console.log("a user connected");
