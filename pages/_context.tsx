@@ -1,18 +1,32 @@
+import { AppContext } from 'next/app';
 import { createContext, useContext } from 'react';
-import { io } from 'socket.io-client';
-import socket from './_socket';
-const AppContext = createContext({});
-export function AppWrapper({ children }) {
-    let globalContext = {
-        socket: socket
-    };
+import { io, Socket } from 'socket.io-client';
+
+interface TypeEasyContext  {
+    socket: Socket;
+};
+
+const typeEasyContext: TypeEasyContext = {
+    socket: io(`http://${window.location.hostname}:3001`)
+}
+
+const AppContext = createContext(typeEasyContext);
+
+export function AppWrapper({children} : {children: any}) {
     return (
-        <AppContext.Provider value= { globalContext } >
+        <AppContext.Provider value= { typeEasyContext } >
         { children }
         </AppContext.Provider>
     );
 }
 
-export function useAppContext() {
+/** Used for getting app context in class components */
+export default AppContext;
+
+/**
+ * Get the current context's value
+ * @returns {TypeEasyContext}
+ */
+export function useAppContext(): TypeEasyContext {
     return useContext(AppContext);
 }
