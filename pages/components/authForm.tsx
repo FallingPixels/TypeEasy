@@ -7,13 +7,13 @@ interface AuthState  {
   email?: any;
   password?: any;
 }
+
 interface AuthProps {
   authFunction(e:React.SyntheticEvent): null;
   accountExists: string[];
   value: string;
   page: string;
 }
-
 
 export default class AuthForm extends Component<AuthProps, AuthState> {
 
@@ -23,7 +23,6 @@ export default class AuthForm extends Component<AuthProps, AuthState> {
   }
 
   handleChange(e: React.ChangeEvent <HTMLInputElement>) {
-
     const name = e.target.name;
     const value = e.target.value;
     if(name === 'email'){
@@ -32,8 +31,6 @@ export default class AuthForm extends Component<AuthProps, AuthState> {
       this.setState({ password: value });
     }
   }
-
-
 
   render() {
     const greetings = ['Welcome', 'Bienvenido', '欢迎', 'ようこそ', 'Bienvenue', 'Herzlich Willkommen', 'Witamy', 'Velkominn', 'Bem-Vinda'];

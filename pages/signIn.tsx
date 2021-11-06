@@ -10,7 +10,7 @@ const signIn = (e: React.SyntheticEvent) => {
   }
   const email = target.email.value;
   const password = target.password.value;
-   //Insert fetch requeset here with await keyword be sure to use async up top
+   //Insert fetch request here with await keyword be sure to use async up top
   // to avoid data loss when the page switches
   form.reset();
   location.replace('/home');

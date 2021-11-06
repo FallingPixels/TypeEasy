@@ -10,7 +10,7 @@ const signUp = (e: React.SyntheticEvent) => {
   }
   const email = target.email.value;
   const password = target.password.value;
-  //Insert fetch requeset here with await keyword be sure to use async up top
+  //Insert fetch request here with await keyword be sure to use async up top
   // to avoid data loss when the page switches
   form.reset();
   location.replace('/home');
@@ -20,7 +20,7 @@ const signUp = (e: React.SyntheticEvent) => {
 const accountExists= ["Have an account?", "Sign-in instead!"]
 const SignUp = () => {
   return (
-   <AuthForm authFunction={signUp} accountExists={accountExists} page="signIn" value="Sign-up"/>
+   <AuthForm authFunction={signUp} accountExists={accountExists} page="/signIn" value="Sign-up"/>
   )
 }
 

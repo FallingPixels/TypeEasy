@@ -9,6 +9,7 @@ $triangleMatrix: matrix(0.89, -0.45, -0.45, -0.89, 0, 0);
 $borderRadius: 3px;
 $titleFont: 28px;
 $marginTopReg: 2rem;
+
 .container {
   padding: 0 2rem;
 }
@@ -54,20 +55,20 @@ $marginTopReg: 2rem;
   padding-left: 1rem;
   height: 2.5rem;
   border: 1px black solid;
-  width: 350px;
+  width: 90%;
   border-radius: .75rem;
   margin-top: $marginTopReg;
   font-size: 24px;
 }
 
-.greetingInitial {
-  transition: 1s opacity ease-in-out;
-  opacity: 0;
-}
 
 .greetingEnd {
   transition: 1s opacity ease-in-out;
   opacity: 1;
+}
+.greetingInitial {
+  transition: 1s opacity ease-in-out;
+  opacity: 0;
 }
 
 
