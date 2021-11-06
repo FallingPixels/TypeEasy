@@ -60,6 +60,15 @@ $marginTopReg: 2rem;
   font-size: 24px;
 }
 
+.greetingInitial {
+  transition: 1s opacity ease-in-out;
+  opacity: 0;
+}
+
+.greetingEnd {
+  transition: 1s opacity ease-in-out;
+  opacity: 1;
+}
 
 
 .rectangle {

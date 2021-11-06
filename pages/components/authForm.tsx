@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
 import authPage from '../../styles/AuthPage.module.scss'
 import AuthButton from './authButton';
+import Welcome from './welcome'
 
 interface AuthState  {
-  greetings: string[];
   email?: any;
   password?: any;
 }
 interface AuthProps {
   authFunction(e:React.SyntheticEvent): null;
   accountExists: string[];
+  value: string;
+  page: string;
 }
 
 
@@ -17,17 +19,13 @@ export default class AuthForm extends Component<AuthProps, AuthState> {
 
   constructor(props: AuthProps){
     super(props);
-    this.state =  {
-      greetings: ['Welcome', '¡Bienvenido', '欢迎', 'ようこそ', 'Bienvenue', 'Herzlich Willkommen', 'Witamy', 'Velkominn', 'Bem-Vinda']
-    };
-
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(e: React.ChangeEvent <HTMLInputElement>) {
 
-    const name: string = e.target.name;
-    const value: string = e.target.value;
+    const name = e.target.name;
+    const value = e.target.value;
     if(name === 'email'){
       this.setState({ email: value });
     } else {
@@ -36,12 +34,13 @@ export default class AuthForm extends Component<AuthProps, AuthState> {
   }
 
 
+
   render() {
-    const {greetings} = this.state;
-    const {authFunction, accountExists} = this.props;
+    const greetings = ['Welcome', 'Bienvenido', '欢迎', 'ようこそ', 'Bienvenue', 'Herzlich Willkommen', 'Witamy', 'Velkominn', 'Bem-Vinda'];
+    const {authFunction, accountExists, page, value} = this.props;
     return (
     <form action="submit" onSubmit={authFunction}  className={authPage.main} >
-      <h1>{this.state.greetings[0]}</h1>
+      <Welcome greetings={greetings} />
         <svg width="349" height="205" viewBox="0 0 349 205" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="37.999" y="1.28897" width="184" height="105" rx="3" transform="rotate(-0.401374 37.999 1.28897)" fill="#EEEEEE" />
           <path d="M40.424 132.149C38.3639 133.629 35.5109 132.043 35.6802 129.512L41.6182 40.7568C41.7612 38.6196 44.0332 37.3165 45.9501 38.2722L115.372 72.8841C117.393 73.8919 117.618 76.6874 115.784 78.0053L40.424 132.149Z" fill="#EEEEEE" />
@@ -58,7 +57,6 @@ export default class AuthForm extends Component<AuthProps, AuthState> {
         name="email"
         placeholder="Email"
         required />
-
       <input
         id="password"
         className={authPage.login}
@@ -67,7 +65,7 @@ export default class AuthForm extends Component<AuthProps, AuthState> {
         name="password"
         placeholder="Password"
         required />
-      <AuthButton accountExists={accountExists} className={authPage['login-div']} value='Sign-in'/>
+      <AuthButton value={value} page={page} accountExists={accountExists} className={authPage['login-div']}/>
    </form>
   )
 }
