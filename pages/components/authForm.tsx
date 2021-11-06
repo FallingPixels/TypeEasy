@@ -4,8 +4,8 @@ import AuthButton from './authButton';
 import Welcome from './welcome'
 
 interface AuthState  {
-  email?: any;
-  password?: any;
+  email?: string;
+  password?: string;
 }
 
 interface AuthProps {
