@@ -1,12 +1,15 @@
 import {FC} from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+
 type Props = {
   value: string;
   className: string;
   accountExists: string[];
   page: string;
 }
-const authButton: FC<Props> = ({value, className, accountExists, page})=> {
+const AuthButton: FC<Props> = ({ value, className, accountExists, page})=> {
+  const router = useRouter();
   return (
     <div className={className}>
       <div>
@@ -25,11 +28,15 @@ const authButton: FC<Props> = ({value, className, accountExists, page})=> {
         </a>
       </Link>
       </div>
-      <button type={"submit"}>
+      {value === 'Sign-in' ? <button onClick={() => {router.push('/home')}} type={"submit"}>
         {value}
       </button>
+        : <button onClick={() => {router.push(page)}} type={"submit"}>
+          {value}
+        </button>
+}
     </div>
   )
 }
 
-export default authButton;
+export default AuthButton;

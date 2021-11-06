@@ -13,7 +13,6 @@ const signIn = (e: React.SyntheticEvent) => {
    //Insert fetch request here with await keyword be sure to use async up top
   // to avoid data loss when the page switches
   form.reset();
-  location.replace('/home');
   return null;
 };
 const accountExists: string[] = ["Don't have an account?", "Sign-up instead!"]

@@ -1,4 +1,4 @@
-$primaryColor: #5686E1;
+$primaryColor: #3870E3;
 $messageBoxes: #00A3FF;
 $text: #FFFFFF;
 $translationColor: #FFD500;
@@ -86,4 +86,17 @@ $marginTopReg: 2rem;
   background: $primaryColor;
   border-radius: $borderRadius;
   transform: $triangleMatrix;
+}
+
+.title {
+  height: 7rem;
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;;
 }

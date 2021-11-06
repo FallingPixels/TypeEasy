@@ -12,7 +12,6 @@ const Welcome: FC<Props> = ({greetings}) => {
   const opacity = setTimeout(() => {
     if(time === 3500){
       setStyle(styles.greetingInitial)
-      console.log(time);
       setTime(1200);
     }
     else {
