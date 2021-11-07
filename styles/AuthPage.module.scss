@@ -1,0 +1,102 @@
+$primaryColor: #3870E3;
+$messageBoxes: #00A3FF;
+$text: #FFFFFF;
+$translationColor: #FFD500;
+$optionalColor: #B563C6;
+$landingColorText: #F4f4f4;
+$rectangleMatrix: matrix(-1, 0, 0, 1, 0, 0);
+$triangleMatrix: matrix(0.89, -0.45, -0.45, -0.89, 0, 0);
+$borderRadius: 3px;
+$titleFont: 28px;
+$marginTopReg: 2rem;
+
+.container {
+  padding: 0 2rem;
+}
+
+.main {
+  min-height: 100vh;
+  padding: 4rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.login-div {
+  width: 90%;
+  margin-top: $marginTopReg;
+  display: flex;
+  justify-content: space-between;
+  Link {
+    width: 100%
+  }
+  p {
+    color: $primaryColor;
+    text-decoration: underline;
+    margin-block-start: 0;
+    margin-block-end: .5rem;
+  }
+    button {
+    height: 2.5rem;
+    width: 120px;
+    font-size: 24px;
+    border: none;
+    border-radius: 30px;
+    color: $text;
+    background-color: $primaryColor;
+    }
+}
+
+.login {
+  padding-left: 1rem;
+  height: 2.5rem;
+  border: 1px black solid;
+  width: 90%;
+  border-radius: .75rem;
+  margin-top: $marginTopReg;
+  font-size: 24px;
+}
+
+
+.greetingEnd {
+  transition: 1s opacity ease-in-out;
+  opacity: 1;
+}
+.greetingInitial {
+  transition: 1s opacity ease-in-out;
+  opacity: 0;
+}
+
+
+.rectangle {
+  width: 184px;
+  height: 105px;
+  background: $primaryColor;
+  border-radius: $borderRadius;
+  transform: $rectangleMatrix;
+}
+
+.polygon {
+  width: 87.05px;
+  height: 92.11px;
+  background: $primaryColor;
+  border-radius: $borderRadius;
+  transform: $triangleMatrix;
+}
+
+.title {
+  height: 7rem;
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;;
+}
