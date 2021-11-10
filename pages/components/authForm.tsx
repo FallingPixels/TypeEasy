@@ -3,23 +3,33 @@ import authPage from '../../styles/AuthPage.module.scss'
 import AuthButton from './authButton';
 import Welcome from './welcome'
 import Image from 'next/image';
+import router, { withRouter, NextRouter } from 'next/router';
 
-interface AuthState  {
-  email?: string;
-  password?: string;
+
+interface WithRouterProps {
+  router: NextRouter;
 }
 
-interface AuthProps {
-  authFunction(e:React.SyntheticEvent): null;
+interface AuthState  {
+  email: string ;
+  password: string ;
+}
+
+interface AuthProps extends WithRouterProps {
+  signUp(e: React.FocusEvent<HTMLFormElement>): Promise<void>;
   accountExists: string[];
   value: string;
   page: string;
 }
 
-export default class AuthForm extends Component<AuthProps, AuthState> {
+class AuthForm extends Component<AuthProps, AuthState> {
 
   constructor(props: AuthProps){
     super(props);
+    this.state = {
+      email: '',
+      password: ''
+    };
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -33,17 +43,19 @@ export default class AuthForm extends Component<AuthProps, AuthState> {
     }
   }
 
+
+
   render() {
     const greetings = ['Welcome', 'Bienvenido', '欢迎', 'ようこそ', 'Bienvenue', 'Herzlich Willkommen', 'Witamy', 'Velkominn', 'Bem-Vinda'];
-    const {authFunction, accountExists, page, value} = this.props;
+    const {signUp, accountExists, page, value} = this.props;
     return (
       <>
     <div className={authPage.main}>
       <div className={authPage.title}>
         <Welcome greetings={greetings} />
       </div>
-      <form action="submit" onSubmit={authFunction} className={authPage.form}   >
-        <Image width={349} height={205} src="/speakEasy.png" alt="Textbubble"/>
+      <form action="submit" onSubmit={signUp} className={authPage.form}   >
+        <Image width={349} height={205} src="/speakEasy.png" alt="Speak Easy Logo"/>
         <input
           id="username"
           className={authPage.login}
@@ -60,11 +72,15 @@ export default class AuthForm extends Component<AuthProps, AuthState> {
           name="password"
           placeholder="Password"
           required />
-        <AuthButton value={value} page={page} accountExists={accountExists} className={authPage['login-div']}/>
+        <AuthButton
+          value={value}
+          page={page}
+          accountExists={accountExists}
+          className={authPage['login-div']}/>
     </form>
   </div>
    </>
   )
 }
-
 }
+export default withRouter(AuthForm);
