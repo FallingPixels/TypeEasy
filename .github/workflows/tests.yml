@@ -12,4 +12,4 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run Jest
     - run: yarn
-    - run: yarn test
+    - run: yarn run test
