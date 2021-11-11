@@ -13,23 +13,18 @@ export default async function handler(
 ) {
   const { db }  = await connectToDatabase();
 
-  const {email, password }: {email: string, password: string}  = JSON.parse(req.body);
+  const {email, password }: {email: string, password: string}  = req.body;
 
   if(!email || !password){
     res.status(400).json({err:'email and password are required fields'});
   }
-  /**
-   * Checks to see if there is an existing email in the database
-   * Handles existing emails so it would require to user to enter a unique email
-   * there is a mongoDB function for this as well.
-   */
-    const existingUser: [] = await db.collection('users').find({email}).toArray();
-    if(!existingUser) {
-      res.status(401).json({err: 'email already exists' });
-    }
-    const user = await argon2
-      .hash(password)
-      .then((hashedPassword: string) =>  db.collection('users')
-                                 .insertOne({email, hashedPassword}));
-    res.status(201).json({user});
+  const existingUser: [] = await db.collection('users').find({email}).toArray();
+  if(!existingUser) {
+    res.status(401).json({err: 'email already exists' });
+  }
+  const user = await argon2
+    .hash(password)
+    .then((hashedPassword: string) =>  db.collection('users')
+                                           .insert({email, hashedPassword}));
+  res.status(201).json(user);
 }
