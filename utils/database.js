@@ -1,12 +1,16 @@
 import { MongoClient } from 'mongodb';
 
-const { MONGODB_URI, MONGODB_DB } = process.env;
+const { MONGODB_URI, MONGODB_DB, TOKEN_SECRET } = process.env;
 if(!MONGODB_URI){
   throw new Error('Define the MONGODB_URI environment variable')
 }
 
 if(!MONGODB_DB){
   throw new Error('Define the MONGODB_DB environment variable')
+}
+
+if(!TOKEN_SECRET){
+  throw new Error('Define the TOKEN_SECRET environment variable');
 }
 
 let cachedClient= null;

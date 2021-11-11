@@ -19,12 +19,12 @@ export default async function handler(
     res.status(400).json({err:'email and password are required fields'});
   }
   const existingUser: [] = await db.collection('users').find({email}).toArray();
-  if(!existingUser) {
+  if(existingUser) {
     res.status(401).json({err: 'email already exists' });
   }
   const user = await argon2
     .hash(password)
     .then((hashedPassword: string) =>  db.collection('users')
-                                           .insert({email, hashedPassword}));
+                                           .insertOne({email, hashedPassword}));
   res.status(201).json(user);
 }
