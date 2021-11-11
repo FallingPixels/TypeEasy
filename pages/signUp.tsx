@@ -1,14 +1,12 @@
 import AuthForm from './components/authForm'
-import React, { FC } from 'react';
+import React from 'react';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
-
-
+import axios from 'axios';
 
 const accountExists= ["Have an account?", "Sign-in instead!"]
 function SignUp(){
   const router = useRouter();
-  const signUp = async (e: React.FormEvent<HTMLFormElement>) => {
+  const signUp =   (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     const target = e.target as typeof e.target & {
@@ -18,16 +16,12 @@ function SignUp(){
     const email = target.email.value;
     const password = target.password.value;
     const account: object = { email, password }
-    await fetch('api/sign-up', {
-      method: 'POST',
-      body: JSON.stringify(account)
-    })
-      .then(response => response.json())
-      .then(data => {
-        form.reset();
-        router.push('/signIn')
-      })
-      .catch(err => console.error(err))
+    axios.post('/api/signup', account).then(res => {
+      form.reset();
+      router.push('/signIn');
+    }).catch(err => {
+      console.error(err);
+    });
   }
 
   return (

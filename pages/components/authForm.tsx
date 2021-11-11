@@ -3,20 +3,15 @@ import authPage from '../../styles/AuthPage.module.scss'
 import AuthButton from './authButton';
 import Welcome from './welcome'
 import Image from 'next/image';
-import router, { withRouter, NextRouter } from 'next/router';
 
-
-interface WithRouterProps {
-  router: NextRouter;
-}
 
 interface AuthState  {
   email: string ;
   password: string ;
 }
 
-interface AuthProps extends WithRouterProps {
-  signUp(e: React.FocusEvent<HTMLFormElement>): Promise<void>;
+interface AuthProps {
+  signUp(e: React.FocusEvent<HTMLFormElement>): void;
   accountExists: string[];
   value: string;
   page: string;
@@ -83,4 +78,4 @@ class AuthForm extends Component<AuthProps, AuthState> {
   )
 }
 }
-export default withRouter(AuthForm);
+export default AuthForm;

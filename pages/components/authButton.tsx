@@ -28,14 +28,9 @@ const AuthButton: FC<Props> = ({ value, className, accountExists, page})=> {
         </a>
       </Link>
       </div>
-      {/* {value === 'Sign-in' ? <button onClick={() => {router.push('/home')}} type={"submit"}>
-        {value}
-      </button>
-        : <button onClick={() => {router.push(page)}} type={"submit"}> */}
         <button>
           {value}
         </button>
-{/* } */}
     </div>
   )
 }

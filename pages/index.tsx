@@ -1,10 +1,8 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import { useAppContext } from './_context'
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import Image from 'next/image';
+import styles from '../styles/Home.module.css';
 const Home: NextPage = () => {
-  console.log(useAppContext);
   return (
     <div className={styles.container}>
       <Head>

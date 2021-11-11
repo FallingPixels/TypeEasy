@@ -1,9 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { connectToDatabase } from '../../utils/database';
 import * as argon2 from 'argon2';
-// import jwt from 'jsonwebtoken';
-
-
 
 type Data = {
   user?: object;
@@ -32,7 +29,7 @@ export default async function handler(
     }
     const user = await argon2
       .hash(password)
-      .then(hashedPassword =>  db.collection('users')
+      .then((hashedPassword: string) =>  db.collection('users')
                                  .insertOne({email, hashedPassword}));
     res.status(201).json({user});
 }
