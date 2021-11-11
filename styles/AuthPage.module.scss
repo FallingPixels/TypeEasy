@@ -9,6 +9,7 @@ $triangleMatrix: matrix(0.89, -0.45, -0.45, -0.89, 0, 0);
 $borderRadius: 3px;
 $titleFont: 28px;
 $marginTopReg: 2rem;
+$boxShadow: 2px 3px 3px lightgray;
 
 .container {
   padding: 0 2rem;
@@ -48,17 +49,19 @@ $marginTopReg: 2rem;
     border-radius: 30px;
     color: $text;
     background-color: $primaryColor;
+    box-shadow: $boxShadow;
     }
 }
 
 .login {
   padding-left: 1rem;
   height: 2.5rem;
-  border: 1px black solid;
+  border: 1px gray solid;
   width: 90%;
   border-radius: .75rem;
   margin-top: $marginTopReg;
   font-size: 24px;
+  box-shadow: $boxShadow;
 }
 
 
@@ -98,5 +101,5 @@ $marginTopReg: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;;
+  justify-content: center;
 }
