@@ -1,15 +1,12 @@
-
-name: Tests
-
-on: [push]
-
+name: CI
+on: push
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
-    - name: Run Jest
-    - run: yarn
-    - run: yarn run test
+    - name: Install modules
+      run: yarn
+    - name: Run tests
+      run: yarn test
+
