@@ -16,12 +16,10 @@ function SignUp(){
     const email = target.email.value;
     const password = target.password.value;
     const account: object = { email, password }
-    axios.post('/api/signup', account).then(res => {
-      form.reset();
+    axios.post('/api/sign-up', account).then((res: object | undefined)=> {
       router.push('/signIn');
-    }).catch(err => {
-      console.error(err);
-    });
+    })
+    .catch((err: any) => console.error(err));
   }
 
   return (
