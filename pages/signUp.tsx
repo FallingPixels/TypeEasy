@@ -16,14 +16,14 @@ function SignUp(){
     const email = target.email.value;
     const password = target.password.value;
     const account: object = { email, password }
-    axios.post('/api/sign-up', account).then((res: object | undefined)=> {
+    axios.post('/api/sign-up', account).then((res: object)=> {
       router.push('/signIn');
     })
     .catch((err: any) => console.error(err));
   }
 
   return (
-   <AuthForm signUp={signUp} accountExists={accountExists} page="/signIn" value="Sign-up"/>
+   <AuthForm auth={signUp} accountExists={accountExists} page="/signIn" value="Sign-up"/>
   )
 }
 
