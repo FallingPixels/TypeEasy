@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { connectToDatabase } from '../../utils/database';
+import { connectToDatabase } from 'utils/database';
 import * as argon2 from 'argon2';
 import jwt from 'jsonwebtoken';
 
