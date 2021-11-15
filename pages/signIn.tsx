@@ -1,4 +1,4 @@
-import AuthForm from './components/authForm'
+import AuthForm from 'components/authForm';
 import React, {FC} from 'react';
 
 const signIn = (e: React.SyntheticEvent) => {
