@@ -1,5 +1,5 @@
 import React, {FC, useEffect, useState} from 'react'
-import styles from '../../styles/AuthPage.module.scss';
+import styles from 'styles/AuthPage.module.scss';
 
 type Props = {
   greetings: string[];

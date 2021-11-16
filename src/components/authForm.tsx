@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import authPage from '../../styles/AuthPage.module.scss'
+import authPage from 'styles/AuthPage.module.scss'
 import AuthButton from './authButton';
 import Welcome from './welcome'
 import Image from 'next/image';
 import { NextRouter, withRouter } from 'next/router';
-import decodeToken from '../../utils/decode-token';
+import decodeToken from 'utils/decode-token';
 
 interface AuthState  {
   email: string;

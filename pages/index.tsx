@@ -1,5 +1,5 @@
 import React, {FC, useEffect, useState} from 'react'
-import decodeToken from '../utils/decode-token';
+import decodeToken from 'utils/decode-token';
 import {useRouter} from 'next/router';
 import SignIn from './signIn';
 

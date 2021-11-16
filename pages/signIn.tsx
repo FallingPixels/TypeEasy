@@ -1,4 +1,4 @@
-import AuthForm from './components/authForm'
+import AuthForm from 'components/authForm'
 import React from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
